@@ -12,6 +12,10 @@ app.get("/tasks", (req, res) => {
     res.json(tasks);
 });
 
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
 app.post("/tasks", (req, res) => {
     const newTask = {
         id: tasks.length + 1,
